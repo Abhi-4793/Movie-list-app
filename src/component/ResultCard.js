@@ -1,11 +1,15 @@
-import React,{useState} from 'react'
+import React,{ useState} from 'react'
 import { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
+import { FaHeart } from 'react-icons/fa';
+
+
 
 const ResultCard = ({movie}) => {
-
-   const [icolor,seticolor] = useState("grey");
-
+    const [icolor,setIcolor] = useState(false);
+   const red = "#FF0000";
+   const grey = "808080"
+   
 
    
     
@@ -18,12 +22,26 @@ let alreadyaddedWatchlist = watchlist.find(m => m.id === movie.id);
 
 let  alreadyaddedWatched = watched.find(k => k.id === movie.id) 
 
-// const disable_heart_icon = clikedheart ? true :false;
+
 
 const disable_watchlist_Button = alreadyaddedWatchlist ? true : alreadyaddedWatched ? true : false ;
 const disable_favourite_icon = alreadyAddedFavourite ? true :false;
 
 const disable_watched_Button = alreadyaddedWatched ? true: false;
+
+// const heart = () => useEffect(()=>{
+    
+   
+     
+//        },[clikedheart]);
+
+
+    const   handleClick = () => setIcolor(true);
+        
+            
+        //<FaHeart style={ icolor? {color: red} :{color: grey} }  className={icolor? "redColor" : "greyColor"}  aria-hidden="true" />
+    
+
   return (
     <div className="result-card">
         <div className="poster-wrapper">
@@ -45,7 +63,7 @@ const disable_watched_Button = alreadyaddedWatched ? true: false;
                 <button className="favourite-btn"
                 onClick={()=>addToFavourite(movie)}
                 disabled={disable_favourite_icon}>
-                <i class="fa-solid fa-heart heart-icon" style={{color:icolor}} onClick={()=>{seticolor("red") }} aria-hidden="true" ></i>
+                 <FaHeart    style={ icolor? {color: red} :{color: grey} } onClick={()=>handleClick() } aria-hidden="true" />  {/*//class="fa-solid fa-heart heart-icon" */}
                 </button>
             </div>
                 <h4 className="release-date">
@@ -77,4 +95,5 @@ const disable_watched_Button = alreadyaddedWatched ? true: false;
 
 
 export default ResultCard;
+
 

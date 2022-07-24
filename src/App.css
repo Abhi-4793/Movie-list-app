@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
-  --primary: #006A69;
+  --primary: #006a69;
   --secondary: #21d07a;
   --white: #fff;
 }
@@ -21,7 +23,7 @@ body {
 
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    width: 745px;
   }
 }
 
@@ -95,10 +97,10 @@ header a:hover {
   opacity: 0.7;
 }
 
-header .brand a {
-  font-weight: 700;
+/* header .brand a {
+  font-weight: 600;
   font-size: 1.5rem;
-}
+} */
 
 header .nav-links {
   padding: 0;
@@ -183,31 +185,19 @@ header .nav-links li:last-child {
 .result-card .controls button {
   margin-right: 10px;
 }
-.favourite-div{
-margin:0px 0px 0px 350px;
-
+.favourite-div {
+  margin: 0px 0px 0px 350px;
 }
-.favourite-btn{
+.favourite-btn {
   background-color: white;
   border: none;
   height: 20px;
   width: 40px;
- 
-  
 }
 .heart-icon {
-  
-  /* color: grey; */
   cursor: pointer;
   font-size: 20px;
-  
-
- 
-  
-  
-
 }
-
 
 /* Movie Page */
 .movie-page {
@@ -255,13 +245,12 @@ margin:0px 0px 0px 350px;
   position: relative;
   border: 0;
   display: block;
- box-shadow: 0 0 12px #2a264f;
+  box-shadow: 0 0 12px #2a264f;
 }
 
 .movie-card img {
   width: 100%;
   display: block;
-  
 }
 
 .movie-card .overlay {
@@ -315,4 +304,15 @@ margin:0px 0px 0px 350px;
   color: #c4c4c4;
   font-size: 3rem;
   text-align: center;
+}
+
+.greyColor {
+  color: #808080;
+}
+.redColor {
+  background-color: "#FF0000 !important";
+  color: "#FF0000 !important";
+}
+.searchicon {
+  margin-top: 10px;
 }

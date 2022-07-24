@@ -39,11 +39,11 @@ const AppReducer =  (state,action) => {
                 ...state,
                 favourite:[action.payload,...state.favourite]
             } 
-        // case "CHANGE_HEART_ICON":
-        //     return{
-        //         ...state,
-        //         hearticon:[action.payload,...state.hearticon]
-        //     }              
+        case "CHANGE_HEART_ICON":
+            return{
+                ...state,
+                hearticon:[action.payload,...state.hearticon]
+            }              
         default:
             return state
     }

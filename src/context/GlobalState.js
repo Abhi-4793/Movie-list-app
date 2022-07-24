@@ -4,13 +4,15 @@ import AppReducer from "./AppReducer";
 
 //initial state
 
+
+
 const initialState = {
     watchlist:localStorage.getItem("watchlist") ?
     JSON.parse(localStorage.getItem("watchlist")) : [],
     watched: localStorage.getItem("watched") ?
     JSON.parse(localStorage.getItem("watched")) : [] ,
-    favourite: localStorage.getItem("favourite")?
-    JSON.parse(localStorage.getItem("favourite")) :[],
+    favourite: localStorage.getItem("favourite") ?
+    JSON.parse(localStorage.getItem("favourite")) : []
     // hearticon:localStorage.getItem("hearticon")?
     // JSON.parse(localStorage.getItem("hearticon")):[]
 };
@@ -32,12 +34,12 @@ dispatch({
     payload: movie
 });
     }
-// const changeheareticon = (id) => {
-//     dispatch({
-// type: "CHANGE_HEART_ICON",
-// payload:id
-//     })
-//     };
+const changeheareticon = (id) => {
+    dispatch({
+type: "CHANGE_HEART_ICON",
+payload:id
+    })
+    };
 const removeFromWatchlist = (id) => {
     dispatch({
         type: "REMOVE_MOVIE_FROM_WATCHLIST",
@@ -89,9 +91,9 @@ const addToFavourite = (movie) =>{
         moveToWatchlist,
         favourite:state.favourite,
         addToFavourite,
-        removeFromFavourite
-        // hearticon:state.hearticon,
-        // changeheareticon
+        removeFromFavourite,
+        hearticon:state.hearticon,
+        changeheareticon
 
 
       
