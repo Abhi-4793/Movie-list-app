@@ -7,8 +7,11 @@ const MovieControls = ({ movie, type }) => {
     removeFromWatched,
     moveToWatchlist,
     removeFromFavourite,
+    addToFavourite,
+    favourite,
   } = useContext(GlobalContext);
-
+  let alreadyAddedFavourite = favourite.find((f) => f.id === movie.id);
+  const disable_favourite_icon = alreadyAddedFavourite ? true : false;
   return (
     <div className="inner-card-controls">
       {type === "watchlist" && (
@@ -52,12 +55,13 @@ const MovieControls = ({ movie, type }) => {
       )}
       {type === "trending" && (
         <>
-          {/* <button
+          <button
             className="ctrl-btn"
-            onClick={() => removeFromFavourite(movie.id)}
+            disabled={disable_favourite_icon}
+            onClick={() => addToFavourite(movie)}
           >
-            <i className="fa-fw fa fa-times"></i>
-          </button> */}
+            <i className="fa-solid fa-heart"></i>
+          </button>
         </>
       )}
     </div>
