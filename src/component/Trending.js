@@ -6,7 +6,7 @@ const Trending = () => {
   const [trendresult, setTrendresult] = useState([]);
 
   fetch(
-    `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
   )
     .then((res) => res.json())
     .then((data) => {
